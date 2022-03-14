@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Product from '../components/product'
+import Product from './Product'
 
 
 const Products = ({products}) => {
