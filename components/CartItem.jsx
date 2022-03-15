@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { removeFromCart } from '../redux/Shopping/shopping-actions'
+import { removeFromCart, adjustQty } from '../redux/Shopping/shopping-actions'
 import { RiDeleteBin6Fill } from 'react-icons/ri'
 
-const CartItem = ({item, removeFromCart}) => {
-    console.log(item)
+const CartItem = ({item, removeFromCart, adjustQty}) => {
+    // console.log(item)
+    const [ input, setInput ] = useState(item.qty) 
+
+    function onChangeHandler(e){
+        if(e.target.value < 0) return setInput(0)
+        setInput(e.target.value)
+        adjustQty(item.id, e.target.value)
+
+    }
+
   return (
     <div className='flex shadow-lg h-auto mt-5 bg-gradient-to-r from-sky-500 to-indigo-500 text-white rounded-xl'>
         <div className="w-3/12">
@@ -17,7 +26,7 @@ const CartItem = ({item, removeFromCart}) => {
         </div>
         <div className="w-3/12 flex flex-col items-end mr-5">
             <div className="text-black mt-5">
-                <input className='w-16 text-xl p-2 rounded-xl' type="number" id={item.id} name='qty' value={item.qty}  />
+                <input className='w-16 text-xl p-2 rounded-xl' type="number" id={item.id} name='qty' value={input} onChange={onChangeHandler} />
             </div>
             <div className="mt-5 py-2 px-2 rounded-lg border-2 flex items-center hover:bg-black/20 ">
                 <RiDeleteBin6Fill/>
@@ -31,7 +40,8 @@ const CartItem = ({item, removeFromCart}) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        removeFromCart: (id) => dispatch(removeFromCart(id))
+        removeFromCart: (id) => dispatch(removeFromCart(id)),
+        adjustQty: (id, value) => dispatch(adjustQty(id, value))
     }
 }
 

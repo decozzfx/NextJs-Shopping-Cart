@@ -1,9 +1,10 @@
+import Link from 'next/link'    
 import React from 'react'
 
 import { connect } from 'react-redux'
-import {addToCart} from '../redux/Shopping/shopping-actions'
+import {addToCart, loadCurrentItem} from '../redux/Shopping/shopping-actions'
 
-const product = ({product, addToCart}) => {
+const product = ({product, addToCart, loadCurrentItem}) => {
     // console.log(product) 
   return (
 
@@ -12,7 +13,9 @@ const product = ({product, addToCart}) => {
             <img src={product.image} alt={product.title} className='border-md rounded-l-xl' loading='lazy' />
         </div>
         <div className="flex- flex-col w-6/12 m-5 text-left">
-            <p className='text-2xl font-semibold mb-8'>{product.title}</p>
+        <Link href={`/product/${product.id}`}>
+            <p className='text-2xl font-semibold mb-8 cursor-pointer' onClick={() => loadCurrentItem(product)}>{product.title}</p>
+        </Link>
             <p className='text-lg mb-8 line-clamp-2'>{product.description}</p>
             <p className='text-2xl font-bold'>${product.price}</p>
         </div>
@@ -25,7 +28,8 @@ const product = ({product, addToCart}) => {
 
 const mapDispatchToProps = dispatch => {  // dispatch meaning sending that function
     return {
-        addToCart : (id) => dispatch(addToCart(id))
+        addToCart : (id) => dispatch(addToCart(id)),
+        loadCurrentItem : (item) => dispatch(loadCurrentItem(item))
     }
 } 
 
