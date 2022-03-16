@@ -1,5 +1,17 @@
 import * as actionTypes from './shopping-types'
 
+import dataProducts from '../../data/data.json'
+
+export const fetchProduct = () => {
+    try {
+        const data = dataProducts
+        // console.log(data)
+        return{ type : 'FETCH_DATA', payload : data }
+    } catch (error) {
+        
+    } 
+}
+
 export const addToCart = (itemId) => {
     return { type : actionTypes.ADD_TO_CART, payload : { id : itemId} }
 }
