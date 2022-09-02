@@ -13,7 +13,7 @@ const product = ({product, addToCart, loadCurrentItem}) => {
         </div>
         <div className="flex- flex-col w-6/12 m-5 text-left">
         <Link href={`/product/${product.id}`}>
-            <p className='text-2xl font-semibold mb-8 cursor-pointer' onClick={() => loadCurrentItem(product)}>{product.title}</p>
+            <p className='text-2xl font-semibold mb-8 cursor-pointer hover:underline' onClick={() => loadCurrentItem(product)}>{product.title}</p>
         </Link>
             <p className='text-lg mb-8 line-clamp-2'>{product.description}</p>
             <p className='text-2xl font-bold'>${product.price}</p>

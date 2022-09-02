@@ -25,7 +25,7 @@ const CartSummary = ({cart}) => {
         <p className='text-xl font-bold'>Total : ({totalItems} items)</p>
         <i className='text-xl font-bold mb-10 ml-10'>${totalPrice}</i>
       </div>
-      <button className='py-2 px-4 bg-gradient-to-bl from-red-400 to-green-500 font-bold rounded-xl'>Check Out</button>
+      <button className='py-2 px-4 bg-gradient-to-bl from-red-400 to-green-500 font-bold rounded-xl hover:border'>Check Out</button>
     </div>
   )
 }
