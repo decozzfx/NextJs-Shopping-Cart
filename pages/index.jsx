@@ -17,9 +17,7 @@ const Home = ({fetchProduct}) => {
         <title>Shopping Cart</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Header/>
-      
+      <Header/>      
       <Products />
 
       </div>
