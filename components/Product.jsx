@@ -5,10 +5,9 @@ import { connect } from 'react-redux'
 import {addToCart, loadCurrentItem} from '../redux/Shopping/shopping-actions'
 
 const product = ({product, addToCart, loadCurrentItem}) => {
-    // console.log(product) 
   return (
 
-    <div className='flex rounded-xl shadow-2xl min-h-full my-10 bg-gradient-to-r from-sky-500 to-indigo-500 text-white'>
+    <div className='flex rounded-xl shadow-2xl min-h-full my-10 bg-gradient-to-r from-sky-800 to-indigo-500 text-white'>
         <div className="w-4/12">
             <img src={product.image} alt={product.title} className='border-md rounded-l-xl' loading='lazy' />
         </div>
