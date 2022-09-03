@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
 const CartSummary = ({cart}) => {
@@ -23,9 +24,11 @@ const CartSummary = ({cart}) => {
       <h2 className='text-xl font-bold mb-10'>Cart Summary</h2>
       <div className="flex">
         <p className='text-xl font-bold'>Total : ({totalItems} items)</p>
-        <i className='text-xl font-bold mb-10 ml-10'>${totalPrice}</i>
+        <i className='text-xl font-bold mb-10 ml-10'>Rp. {totalPrice}</i>
       </div>
-      <button className='py-2 px-4 bg-gradient-to-bl from-red-400 to-green-500 font-bold rounded-xl hover:border'>Check Out</button>
+      <Link href={"/checkout"}>
+        <button className='py-2 px-4 bg-gradient-to-bl from-red-400 to-green-500 font-bold rounded-xl hover:border'>Check Out</button>
+      </Link>
     </div>
   )
 }

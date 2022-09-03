@@ -16,7 +16,7 @@ const product = ({product, addToCart, loadCurrentItem}) => {
             <p className='text-2xl font-semibold mb-8 cursor-pointer hover:underline' onClick={() => loadCurrentItem(product)}>{product.title}</p>
         </Link>
             <p className='text-lg mb-8 line-clamp-2'>{product.description}</p>
-            <p className='text-2xl font-bold'>${product.price}</p>
+            <p className='text-2xl font-bold'>Rp. {product.price}</p>
         </div>
         <div className="w-2/12 p-5">
             <button className='py-2 px-3 border-2 rounded-xl bg-green-400 text-white hover:bg-green-700' onClick={() => addToCart(product.id)}>Add To Cart</button>
